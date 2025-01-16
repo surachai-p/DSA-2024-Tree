@@ -93,7 +93,8 @@ Inorder: 2 3 4 5 7 8
 Preorder: 5 3 2 4 7 8
 Postorder: 2 4 3 8 7 5
 ```
-
+ผลการทดลอง
+![alt text](ผลการทดลอง/exercise2.png)
 ### ส่วนที่ 3: การค้นหาข้อมูลใน Binary Search Tree
 
 Binary Search Tree (BST) เป็น Binary Tree ที่มีคุณสมบัติพิเศษคือ:
@@ -178,13 +179,17 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
-
+ผลการทดลอง
+![alt text](ผลการทดลอง/exercise3.1.png) 
+![alt text](ผลการทดลอง/exercise3.2.png)
+![alt text](ผลการทดลอง/exercise3.3.png)
 ## การทดสอบและการวิเคราะห์
 
 1. จงสร้าง BST จากข้อมูลต่อไปนี้: 5, 3, 7, 2, 4, 8
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
-
+ผลการทดลอง
+![alt text](<ผลการทดลอง/Analysis Test.png>)
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
@@ -217,6 +222,8 @@ inorder(root)  # 2 4 5 7 8
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+ผลการทดลอง
+![alt text](<ผลการทดลอง/Additional exercises1.png>)
 ### แบบฝึกหัดที่ 2: Binary Search Tree
 จงเขียนโปรแกรมที่รับข้อมูลนักศึกษาประกอบด้วย รหัสนักศึกษา(key) และ ชื่อ-นามสกุล แล้วเก็บในรูปแบบ Binary Search Tree พร้อมทั้งสร้างฟังก์ชันต่อไปนี้:
 
@@ -226,6 +233,15 @@ inorder(root)  # 2 4 5 7 8
 2.4) แสดงรายชื่อนักศึกษาเรียงตามรหัส
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
 
+ผลการทดลองกำหนดข้อมูลให้
+![alt text](<ผลการทดลอง/Additional exercises.2 Configure settings..png>)
+
+ผลการทดลองแบบป้อนข้อมูลเอง
+![alt text](<ผลการทดลอง/Additional exercises2.1.png>)
+
+![alt text](<ผลการทดลอง/Additional exercises2.2.png>)
+
+![alt text](<ผลการทดลอง/Additional exercises2.3.png>)
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
 ### 1. ระบบจัดการไฟล์และโฟลเดอร์
@@ -512,3 +528,12 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
+ผลการทดลองแบบกำหนดข้อมูลให้
+![alt text](<ผลการทดลอง/Test. Provides information..png>)
+
+ผลการทดลองแบบป้อนข้อมุลเอง
+![alt text](<ผลการทดลอง/Test.No data provided1.png>)
+
+![alt text](<ผลการทดลอง/Test.No data provided2.png>)
+
+![alt text](<ผลการทดลอง/Test.No data provided3.png>)
