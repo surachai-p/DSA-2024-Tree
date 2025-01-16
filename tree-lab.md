@@ -52,7 +52,8 @@ root.left.right = Node(4)
 root.right = Node(7)
 root.right.right = Node(8)
 ```
-
+ผลการทดลอง  
+![alt text](ผลการทดลอง/exercise1.png)
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
 จงเขียนฟังก์ชันสำหรับการท่องไปบน Binary Tree ทั้ง 3 แบบ:
