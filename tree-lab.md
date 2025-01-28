@@ -179,6 +179,7 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
+![image](https://github.com/user-attachments/assets/431d0d06-24ae-444b-88ff-ad5e7a3e9579)
 
 ## การทดสอบและการวิเคราะห์
 
