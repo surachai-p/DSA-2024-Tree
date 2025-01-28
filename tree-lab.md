@@ -227,6 +227,8 @@ Binary Search Tree (BST) เป็น Binary Tree ประเภทหนึ่
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+
+
 ![image](https://github.com/user-attachments/assets/2f624d18-7885-4a4a-8059-efc6082e8f97)
 
 ### แบบฝึกหัดที่ 2: Binary Search Tree
