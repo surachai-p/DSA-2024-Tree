@@ -254,8 +254,7 @@ __ตอบ__ Inorder Traversal
 
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
 
-![image](https://github.com/user-attachments/assets/1fa39859-ab8b-47c9-84de-e8f88b7acc2f)
-
+![image](https://github.com/user-attachments/assets/bdee57e0-9ccd-4bb3-a51c-23ea0933c27a)
 
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
