@@ -195,18 +195,18 @@ inorder(root)  # 2 4 5 7 8
 
 2. ในกรณีใดบ้างที่ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search?
 
-    BST จะมีประสิทธิภาพเทียบเท่ากับ Linear Search เมื่อโครงสร้างของ BST ไม่สมดุล (Skewed Tree) 
+        BST จะมีประสิทธิภาพเทียบเท่ากับ Linear Search เมื่อโครงสร้างของ BST ไม่สมดุล (Skewed Tree) 
 เช่น กรณีที่ข้อมูลถูกแทรกเรียงลำดับแบบเพิ่มขึ้นหรือลดลง ทำให้ BST มีลักษณะเหมือน Linked List
 
 3. จงอธิบายความแตกต่างระหว่าง Binary Tree และ Binary Search Tree
 
-    Binary Tree: โครงสร้างต้นไม้ที่แต่ละ Node มีลูกไม่เกิน 2 Node และไม่มีข้อกำหนดเกี่ยวกับการเรียงลำดับข้อมูล
-    Binary Search Tree (BST): เป็น Binary Tree ที่ข้อมูลใน Node ถูกจัดเรียงตามกฎ (ค่าที่น้อยกว่าอยู่ทางซ้าย และค่าที่มากกว่าอยู่ทางขวา) 
+        Binary Tree: โครงสร้างต้นไม้ที่แต่ละ Node มีลูกไม่เกิน 2 Node และไม่มีข้อกำหนดเกี่ยวกับการเรียงลำดับข้อมูล
+        Binary Search Tree (BST): เป็น Binary Tree ที่ข้อมูลใน Node ถูกจัดเรียงตามกฎ (ค่าที่น้อยกว่าอยู่ทางซ้าย และค่าที่มากกว่าอยู่ทางขวา) 
 เพื่อช่วยเพิ่มประสิทธิภาพในการค้นหา, เพิ่ม, และลบข้อมูล
 
 4. การ Traversal แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
 
-การ Traversal แบบ In-order Traversal จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมาก เนื่องจากลำดับการเยี่ยมชมคือ "L -> N -> R"
+        การ Traversal แบบ In-order Traversal จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมาก เนื่องจากลำดับการเยี่ยมชมคือ "L -> N -> R"
 
 ## แบบฝึกหัดเพิ่มเติม
 
@@ -521,4 +521,12 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - คำแปลภาษาไทย
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
+  ![image](https://github.com/user-attachments/assets/3cadbc2b-c04a-453a-970a-91d274fb2917)
+  ![image](https://github.com/user-attachments/assets/add092fe-88ea-443e-90c5-b4cf49901ce4)
+  ![image](https://github.com/user-attachments/assets/39806d11-de7a-42f1-b32e-72fff3f7d557)
+  ![image](https://github.com/user-attachments/assets/63557468-86f0-48b4-8534-b97c476d4c3d)
+
+
+
+
 
