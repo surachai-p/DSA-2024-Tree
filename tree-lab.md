@@ -53,6 +53,9 @@ root.right = Node(7)
 root.right.right = Node(8)
 ```
 
+![image](https://github.com/user-attachments/assets/8d28b008-d475-447d-8cc3-239e739ef51e)
+
+
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
 จงเขียนฟังก์ชันสำหรับการท่องไปบน Binary Tree ทั้ง 3 แบบ:
