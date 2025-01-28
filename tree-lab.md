@@ -184,6 +184,9 @@ inorder(root)  # 2 4 5 7 8
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
 
+![image](https://github.com/user-attachments/assets/8667d452-6318-4c17-ba64-8eeb14a5c287)
+
+
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
