@@ -30,6 +30,7 @@ class Node:
 ```
 
 แบบฝึกหัดที่ 1: จงสร้าง Binary Tree ต่อไปนี้
+
 ```
        5
       / \
@@ -39,7 +40,7 @@ class Node:
 ```
 
 คำตอบ:
-```python
+
 # สร้าง root node
 root = Node(5)
 
@@ -52,6 +53,8 @@ root.left.right = Node(4)
 root.right = Node(7)
 root.right.right = Node(8)
 ```
+![alt text](image.png)
+![alt text](image-1.png)
 
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
@@ -66,6 +69,8 @@ def inorder(node):
         inorder(node.right)
 ```
 
+![alt text](<Screenshot 2025-01-28 204009.png>)
+
 2. Preorder Traversal (Root-Left-Right)
 ```python
 def preorder(node):
@@ -74,6 +79,8 @@ def preorder(node):
         preorder(node.left)
         preorder(node.right)
 ```
+
+![alt text](<Screenshot 2025-01-28 204319.png>)
 
 3. Postorder Traversal (Left-Right-Root)
 ```python
@@ -84,6 +91,8 @@ def postorder(node):
         print(node.data, end=' ')
 ```
 
+![alt text](<Screenshot 2025-01-28 204617.png>)
+
 แบบฝึกหัดที่ 2: จงเขียนผลลัพธ์ที่ได้จากการ Traversal ทั้ง 3 แบบ สำหรับ Tree ที่สร้างในแบบฝึกหัดที่ 1
 
 คำตอบ:
@@ -92,6 +101,12 @@ Inorder: 2 3 4 5 7 8
 Preorder: 5 3 2 4 7 8
 Postorder: 2 4 3 8 7 5
 ```
+       5
+      / \
+     3   7
+    / \   \
+   2   4   8
+
 
 ### ส่วนที่ 3: การค้นหาข้อมูลใน Binary Search Tree
 
@@ -113,6 +128,7 @@ def search(root, key):
     # ถ้า key มากกว่าข้อมูลที่ root ค้นหาใน right subtree
     return search(root.right, key)
 ```
+![alt text](image-2.png)
 
 แบบฝึกหัดที่ 3: จงเขียนฟังก์ชันเพิ่มและลบข้อมูลใน BST
 
@@ -177,19 +193,54 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
+![alt text](image-4.png)
 
 ## การทดสอบและการวิเคราะห์
 
 1. จงสร้าง BST จากข้อมูลต่อไปนี้: 5, 3, 7, 2, 4, 8
+
+       5
+      / \
+     3   7
+    / \   \
+   2   4   8
+![alt text](image-4.png)
+
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
+
+ต้นไม้ก่อนการลบ:
+Inorder: 2 3 4 5 7 8
+Preorder: 5 3 2 4 7 8
+Postorder: 2 4 3 8 7 5
+
+ต้นไม้หลังการลบข้อมูล 3:
+Inorder: 2 4 5 7 8
+Preorder: 5 4 2 7 8
+Postorder: 2 4 8 7 5
+
 
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
+
+ตอบ Binary Search Tree (BST) มีโครงสร้างที่ทำให้สามารถค้นหาข้อมูลได้ในเวลา O(log n) เนื่องจาก BST จะเรียงข้อมูลตามลำดับ ข้อมูลที่น้อยกว่ารากจะอยู่ทางซ้าย และข้อมูลที่มากกว่าจะอยู่ทางขวา
+
 2. ในกรณีใดบ้างที่ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search?
+
+ตอบ มีการเพิ่มข้อมูลแบบเรียงลำดับจากน้อยไปหามาก หรือจากมากไปหาน้อย
+
 3. จงอธิบายความแตกต่างระหว่าง Binary Tree และ Binary Search Tree
+
+ตอบ Binary Tree เป็นต้นไม้ที่ไม่มีข้อกำหนดในการจัดเรียงข้อมูล แต่ BST มีการจัดเรียงข้อมูลโดยที่ข้อมูลใน Subtree ซ้ายจะน้อยกว่าและขวาจะมากกว่า
+
 4. การ Traversal แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
+
+ตอบ Inorder Traversal จะทำให้ข้อมูลใน BST แสดงผลจากน้อยไปหามาก
 
 ## แบบฝึกหัดเพิ่มเติม
 
@@ -208,6 +259,9 @@ inorder(root)  # 2 4 5 7 8
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+![alt text](image-7.png)
+![alt text](image-8.png)
+
 ### แบบฝึกหัดที่ 2: Binary Search Tree
 จงเขียนโปรแกรมที่รับข้อมูลนักศึกษาประกอบด้วย รหัสนักศึกษา(key) และ ชื่อ-นามสกุล แล้วเก็บในรูปแบบ Binary Search Tree พร้อมทั้งสร้างฟังก์ชันต่อไปนี้:
 
@@ -216,6 +270,11 @@ inorder(root)  # 2 4 5 7 8
 2.3) ค้นหาข้อมูลนักศึกษาตามรหัส
 2.4) แสดงรายชื่อนักศึกษาเรียงตามรหัส
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
+
+![alt text](image-9.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
+![alt text](image-12.png)
 
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
@@ -252,6 +311,7 @@ vacation.add_child(photo2)
 
 root.display()
 ```
+![alt text](image-13.png)
 
 ### 2. ระบบแสดงโครงสร้างองค์กร
 
@@ -309,6 +369,8 @@ root = create_organization()
 print("โครงสร้างองค์กร:")
 display_organization(root)
 ```
+![alt text](image-14.png)
+![alt text](image-15.png)
 
 ### 3. การบีบอัดข้อมูลด้วย Huffman Code
 
@@ -409,6 +471,7 @@ print(f"\nข้อความที่ถอดรหัสแล้ว: {deco
 compression_ratio = (1 - len(encoded_text) / (len(text.encode('utf-8')) * 8)) * 100
 print(f"\nอัตราการบีบอัด: {compression_ratio:.2f}%")
 ```
+![alt text](image-16.png)
 
 ### 4. ระบบประมวลผลนิพจน์ทางคณิตศาสตร์ (Expression Tree)
 
@@ -450,6 +513,7 @@ root.right = ExprNode(2)
 result = evaluate(root)
 print(f"ผลลัพธ์: {result}")  # ผลลัพธ์: 16
 ```
+![alt text](image-17.png)
 
 ### 5. ระบบตัดสินใจอัตโนมัติ (Decision Tree)
 
@@ -489,6 +553,8 @@ advisor = create_clothing_advisor()
 recommendation = advisor.decide()
 print(f"คำแนะนำการแต่งกาย: {recommendation}")
 ```
+![alt text](image-18.png)
+![alt text](image-19.png)
 
 ### แบบทดสอบ: ระบบพจนานุกรม
 จงพัฒนาระบบพจนานุกรมอย่างง่ายโดยใช้ Binary Tree ที่มีความสามารถดังนี้:
@@ -503,3 +569,4 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
+![alt text](image-20.png)
