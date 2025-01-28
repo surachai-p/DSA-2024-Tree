@@ -52,6 +52,7 @@ root.left.right = Node(4)
 root.right = Node(7)
 root.right.right = Node(8)
 ```
+![alt text](image.png)
 
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
@@ -92,7 +93,7 @@ Inorder: 2 3 4 5 7 8
 Preorder: 5 3 2 4 7 8
 Postorder: 2 4 3 8 7 5
 ```
-
+![alt text](image-1.png)
 ### ส่วนที่ 3: การค้นหาข้อมูลใน Binary Search Tree
 
 Binary Search Tree (BST) เป็น Binary Tree ที่มีคุณสมบัติพิเศษคือ:
@@ -177,19 +178,35 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
-
+![alt text](image-3.png)
 ## การทดสอบและการวิเคราะห์
 
 1. จงสร้าง BST จากข้อมูลต่อไปนี้: 5, 3, 7, 2, 4, 8
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
-
+![alt text](image-4.png)
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
+
+        Binary Search Tree (BST) มีประสิทธิภาพมากกว่า Linear Search เพราะ BST ใช้โครงสร้างที่ข้อมูลถูกจัดเรียงตามกฎ
+(ค่าที่น้อยกว่าอยู่ทางซ้าย และค่าที่มากกว่าอยู่ทางขวา) ทำให้การค้นหามีความซับซ้อนเฉลี่ย O(log n) ในขณะที่ Linear Search มีความซับซ้อน O(n) 
+เนื่องจากต้องไล่ตรวจสอบทุกข้อมูลทีละตัว
+
 2. ในกรณีใดบ้างที่ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search?
+
+    BST จะมีประสิทธิภาพเทียบเท่ากับ Linear Search เมื่อโครงสร้างของ BST ไม่สมดุล (Skewed Tree) 
+เช่น กรณีที่ข้อมูลถูกแทรกเรียงลำดับแบบเพิ่มขึ้นหรือลดลง ทำให้ BST มีลักษณะเหมือน Linked List
+
 3. จงอธิบายความแตกต่างระหว่าง Binary Tree และ Binary Search Tree
+
+    Binary Tree: โครงสร้างต้นไม้ที่แต่ละ Node มีลูกไม่เกิน 2 Node และไม่มีข้อกำหนดเกี่ยวกับการเรียงลำดับข้อมูล
+    Binary Search Tree (BST): เป็น Binary Tree ที่ข้อมูลใน Node ถูกจัดเรียงตามกฎ (ค่าที่น้อยกว่าอยู่ทางซ้าย และค่าที่มากกว่าอยู่ทางขวา) 
+เพื่อช่วยเพิ่มประสิทธิภาพในการค้นหา, เพิ่ม, และลบข้อมูล
+
 4. การ Traversal แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
+
+การ Traversal แบบ In-order Traversal จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมาก เนื่องจากลำดับการเยี่ยมชมคือ "L -> N -> R"
 
 ## แบบฝึกหัดเพิ่มเติม
 
@@ -208,6 +225,7 @@ inorder(root)  # 2 4 5 7 8
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+![alt text](image-6.png)
 ### แบบฝึกหัดที่ 2: Binary Search Tree
 จงเขียนโปรแกรมที่รับข้อมูลนักศึกษาประกอบด้วย รหัสนักศึกษา(key) และ ชื่อ-นามสกุล แล้วเก็บในรูปแบบ Binary Search Tree พร้อมทั้งสร้างฟังก์ชันต่อไปนี้:
 
@@ -216,7 +234,7 @@ inorder(root)  # 2 4 5 7 8
 2.3) ค้นหาข้อมูลนักศึกษาตามรหัส
 2.4) แสดงรายชื่อนักศึกษาเรียงตามรหัส
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
-
+![alt text](image-5.png)
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
 ### 1. ระบบจัดการไฟล์และโฟลเดอร์
@@ -252,7 +270,7 @@ vacation.add_child(photo2)
 
 root.display()
 ```
-
+![alt text](image-7.png)
 ### 2. ระบบแสดงโครงสร้างองค์กร
 
 ```python
@@ -309,6 +327,7 @@ root = create_organization()
 print("โครงสร้างองค์กร:")
 display_organization(root)
 ```
+![alt text](image-8.png)
 
 ### 3. การบีบอัดข้อมูลด้วย Huffman Code
 
@@ -409,7 +428,7 @@ print(f"\nข้อความที่ถอดรหัสแล้ว: {deco
 compression_ratio = (1 - len(encoded_text) / (len(text.encode('utf-8')) * 8)) * 100
 print(f"\nอัตราการบีบอัด: {compression_ratio:.2f}%")
 ```
-
+![alt text](image-9.png)
 ### 4. ระบบประมวลผลนิพจน์ทางคณิตศาสตร์ (Expression Tree)
 
 ```python
@@ -450,7 +469,7 @@ root.right = ExprNode(2)
 result = evaluate(root)
 print(f"ผลลัพธ์: {result}")  # ผลลัพธ์: 16
 ```
-
+![alt text](image-10.png)
 ### 5. ระบบตัดสินใจอัตโนมัติ (Decision Tree)
 
 ```python
@@ -489,7 +508,7 @@ advisor = create_clothing_advisor()
 recommendation = advisor.decide()
 print(f"คำแนะนำการแต่งกาย: {recommendation}")
 ```
-
+![alt text](image-11.png)
 ### แบบทดสอบ: ระบบพจนานุกรม
 จงพัฒนาระบบพจนานุกรมอย่างง่ายโดยใช้ Binary Tree ที่มีความสามารถดังนี้:
 
