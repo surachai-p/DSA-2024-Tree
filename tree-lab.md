@@ -542,5 +542,6 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/f0e09c39-d2a6-41c7-9839-77f73dc67c4b)
+
 
