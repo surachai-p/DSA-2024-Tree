@@ -183,13 +183,128 @@ inorder(root)  # 2 4 5 7 8
 1. จงสร้าง BST จากข้อมูลต่อไปนี้: 5, 3, 7, 2, 4, 8
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
+### โค้ด
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.key = key
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    # ฟังก์ชันแทรกข้อมูลลงใน BST
+    def insert(self, key):
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            self._insert_rec(self.root, key)
+
+    def _insert_rec(self, node, key):
+        # ถ้าค่าที่จะเพิ่มน้อยกว่า node.key ไปทางซ้าย
+        if key < node.key:
+            if node.left is None:
+                node.left = Node(key)
+            else:
+                self._insert_rec(node.left, key)
+        # ถ้าค่าที่จะเพิ่มมากกว่าหรือเท่ากับ node.key ไปทางขวา
+        else:
+            if node.right is None:
+                node.right = Node(key)
+            else:
+                self._insert_rec(node.right, key)
+
+    # ฟังก์ชันค้นหาคำศัพท์
+    def search(self, key):
+        return self._search_rec(self.root, key)
+
+    def _search_rec(self, node, key):
+        if node is None or node.key == key:
+            return node
+        if key < node.key:
+            return self._search_rec(node.left, key)
+        return self._search_rec(node.right, key)
+
+    # In-order Traversal (เรียงลำดับจากน้อยไปมาก)
+    def inorder(self):
+        return self._inorder_rec(self.root)
+
+    def _inorder_rec(self, node):
+        result = []
+        if node:
+            result.extend(self._inorder_rec(node.left))
+            result.append(node.key)
+            result.extend(self._inorder_rec(node.right))
+        return result
+
+    # Pre-order Traversal (ราก, ซ้าย, ขวา)
+    def preorder(self):
+        return self._preorder_rec(self.root)
+
+    def _preorder_rec(self, node):
+        result = []
+        if node:
+            result.append(node.key)
+            result.extend(self._preorder_rec(node.left))
+            result.extend(self._preorder_rec(node.right))
+        return result
+
+    # Post-order Traversal (ซ้าย, ขวา, ราก)
+    def postorder(self):
+        return self._postorder_rec(self.root)
+
+    def _postorder_rec(self, node):
+        result = []
+        if node:
+            result.extend(self._postorder_rec(node.left))
+            result.extend(self._postorder_rec(node.right))
+            result.append(node.key)
+        return result
+
+# สร้าง BST จากข้อมูลที่ให้
+bst = BST()
+data = [5, 3, 7, 2, 4, 8]
+
+# แทรกข้อมูลลงใน BST
+for num in data:
+    bst.insert(num)
+
+# 2. ทดสอบการค้นหาข้อมูล 4 และ 6
+search_4 = bst.search(4)
+search_6 = bst.search(6)
+
+# 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
+print("In-order Traversal:", bst.inorder())  # ผลลัพธ์จะเรียงจากน้อยไปมาก
+print("Pre-order Traversal:", bst.preorder())  # ราก, ซ้าย, ขวา
+print("Post-order Traversal:", bst.postorder())  # ซ้าย, ขวา, ราก
+
+# ทดสอบการค้นหาข้อมูล
+if search_4:
+    print("พบคำศัพท์ 4 ใน BST")
+else:
+    print("ไม่พบคำศัพท์ 4 ใน BST")
+
+if search_6:
+    print("พบคำศัพท์ 6 ใน BST")
+else:
+    print("ไม่พบคำศัพท์ 6 ใน BST")
+
+
+### รูปภาพประกอบ
+![alt text](image-5.png)
 
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
+   *ตอบ Binary Search Tree (BST) มีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search เพราะ BST ใช้หลักการแบ่งครึ่งข้อมูลในแต่ละระดับ (Divide and Conquer) ทำให้การค้นหาทำได้ในเวลา O(log n) เมื่อต้นไม้มีความสมดุล (Balanced) ในขณะที่ Linear Search ต้องตรวจสอบข้อมูลทีละตัวจนกว่าจะเจอข้อมูลที่ต้องการ ใช้เวลา O(n) ในการค้นหา.
 2. ในกรณีใดบ้างที่ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search?
+   *ตอบ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search ในกรณีที่ต้นไม้ไม่สมดุล (Unbalanced) เช่น เมื่อข้อมูลถูกเพิ่มเข้าไปในลำดับที่เรียงตามลำดับจากน้อยไปหามากหรือตามลำดับใดลำดับหนึ่ง ทำให้ BST กลายเป็นเหมือน linked list และใช้เวลาในการค้นหา O(n) เหมือนกับ Linear Search.
 3. จงอธิบายความแตกต่างระหว่าง Binary Tree และ Binary Search Tree
+    *ตอบ Binary Tree คือ โครงสร้างข้อมูลที่แต่ละโหนดมีลูกได้สูงสุด 2 ตัว โดยไม่มีกฎเกณฑ์ในการจัดเรียงข้อมูลใดๆ
+    Binary Search Tree (BST) คือ Binary Tree ที่มีการจัดเรียงข้อมูลโดยที่ค่าของโหนดซ้ายต้องน้อยกว่าค่าของโหนดพ่อ (parent) และค่าของโหนดขวาต้องมากกว่าค่าของโหนดพ่อ ทำให้สามารถค้นหาข้อมูลได้เร็วขึ้น.
 4. การ Traversal แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
+    *ตอบ แบบ Inorder Traversal จะทำให้แสดงผลข้อมูลในลำดับจากน้อยไปหามากเมื่อใช้กับ BST เนื่องจากมันจะเข้าเยี่ยมโหนดซ้ายก่อน, ตามด้วยโหนดปัจจุบัน, แล้วค่อยเยี่ยมโหนดขวา.
 
 ## แบบฝึกหัดเพิ่มเติม
 
@@ -208,6 +323,73 @@ inorder(root)  # 2 4 5 7 8
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+### โค้ด
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self, root_value):
+        self.root = Node(root_value)
+
+    # 1.1) ฟังก์ชันนับจำนวน Node ทั้งหมดใน Tree
+    def count_nodes(self, node):
+        if node is None:
+            return 0
+        return 1 + self.count_nodes(node.left) + self.count_nodes(node.right)
+
+    # 1.2) ฟังก์ชันนับจำนวน Leaf Node
+    def count_leaf_nodes(self, node):
+        if node is None:
+            return 0
+        if node.left is None and node.right is None:
+            return 1
+        return self.count_leaf_nodes(node.left) + self.count_leaf_nodes(node.right)
+
+    # 1.3) ฟังก์ชันหาความสูงของ Tree
+    def height(self, node):
+        if node is None:
+            return 0
+        left_height = self.height(node.left)
+        right_height = self.height(node.right)
+        return max(left_height, right_height) + 1
+
+    # 1.4) ฟังก์ชันหาผลรวมของค่าใน Tree
+    def sum_of_values(self, node):
+        if node is None:
+            return 0
+        return node.value + self.sum_of_values(node.left) + self.sum_of_values(node.right)
+
+# สร้างต้นไม้ตามโครงสร้างที่กำหนด
+bt = BinaryTree(10)
+bt.root.left = Node(5)
+bt.root.right = Node(15)
+bt.root.left.left = Node(3)
+bt.root.left.right = Node(7)
+bt.root.right.left = Node(12)
+bt.root.right.right = Node(18)
+
+# 1.1) นับจำนวน Node ทั้งหมด
+total_nodes = bt.count_nodes(bt.root)
+print(f"จำนวน Node ทั้งหมดใน Tree: {total_nodes}")
+
+# 1.2) นับจำนวน Leaf Node
+leaf_nodes = bt.count_leaf_nodes(bt.root)
+print(f"จำนวน Leaf Node ใน Tree: {leaf_nodes}")
+
+# 1.3) หาความสูงของ Tree
+tree_height = bt.height(bt.root)
+print(f"ความสูงของ Tree: {tree_height}")
+
+# 1.4) หาผลรวมของค่าใน Tree
+tree_sum = bt.sum_of_values(bt.root)
+print(f"ผลรวมของค่าใน Tree: {tree_sum}")
+
+### ภาพประกอบ
+![alt text](image.png)
+
 ### แบบฝึกหัดที่ 2: Binary Search Tree
 จงเขียนโปรแกรมที่รับข้อมูลนักศึกษาประกอบด้วย รหัสนักศึกษา(key) และ ชื่อ-นามสกุล แล้วเก็บในรูปแบบ Binary Search Tree พร้อมทั้งสร้างฟังก์ชันต่อไปนี้:
 
@@ -216,7 +398,159 @@ inorder(root)  # 2 4 5 7 8
 2.3) ค้นหาข้อมูลนักศึกษาตามรหัส
 2.4) แสดงรายชื่อนักศึกษาเรียงตามรหัส
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
+### โค้ด
+class Student:
+    def __init__(self, student_id, name):
+        self.student_id = student_id  # รหัสนักศึกษา
+        self.name = name  # ชื่อ-นามสกุล
+        self.left = None  # ลูกซ้าย
+        self.right = None  # ลูกขวา
 
+class StudentBST:
+    def __init__(self):
+        self.root = None
+
+    # 2.1) ฟังก์ชันเพิ่มข้อมูลนักศึกษา
+    def insert(self, student_id, name):
+        new_student = Student(student_id, name)
+        if self.root is None:
+            self.root = new_student
+        else:
+            self._insert_rec(self.root, new_student)
+
+    def _insert_rec(self, node, new_student):
+        if new_student.student_id < node.student_id:
+            if node.left is None:
+                node.left = new_student
+            else:
+                self._insert_rec(node.left, new_student)
+        else:
+            if node.right is None:
+                node.right = new_student
+            else:
+                self._insert_rec(node.right, new_student)
+
+    # 2.2) ฟังก์ชันลบข้อมูลนักศึกษาตามรหัส
+    def delete(self, student_id):
+        self.root = self._delete_rec(self.root, student_id)
+
+    def _delete_rec(self, node, student_id):
+        if node is None:
+            return node
+        
+        # ค้นหาโหนดที่จะลบ
+        if student_id < node.student_id:
+            node.left = self._delete_rec(node.left, student_id)
+        elif student_id > node.student_id:
+            node.right = self._delete_rec(node.right, student_id)
+        else:
+            # โหนดนี้ตรงกับที่ต้องการลบ
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            
+            # โหนดมีลูกทั้งสองข้าง
+            node.student_id, node.name = self._min_value_node(node.right)
+            node.right = self._delete_rec(node.right, node.student_id)
+        
+        return node
+
+    def _min_value_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current.student_id, current.name
+
+    # 2.3) ฟังก์ชันค้นหาข้อมูลนักศึกษาตามรหัส
+    def search(self, student_id):
+        return self._search_rec(self.root, student_id)
+
+    def _search_rec(self, node, student_id):
+        if node is None or node.student_id == student_id:
+            return node
+        if student_id < node.student_id:
+            return self._search_rec(node.left, student_id)
+        return self._search_rec(node.right, student_id)
+
+    # 2.4) ฟังก์ชันแสดงรายชื่อนักศึกษาเรียงตามรหัส (Inorder Traversal)
+    def inorder(self):
+        students = []
+        self._inorder_rec(self.root, students)
+        return students
+
+    def _inorder_rec(self, node, students):
+        if node:
+            self._inorder_rec(node.left, students)
+            students.append(f"{node.student_id}: {node.name}")
+            self._inorder_rec(node.right, students)
+
+    # 2.5) ฟังก์ชันแสดงจำนวนนักศึกษาทั้งหมด
+    def count_students(self):
+        return self._count_rec(self.root)
+
+    def _count_rec(self, node):
+        if node is None:
+            return 0
+        return 1 + self._count_rec(node.left) + self._count_rec(node.right)
+
+
+# ฟังก์ชันสำหรับการกรอกข้อมูลจากผู้ใช้
+def main():
+    bst = StudentBST()
+
+    while True:
+        print("\n--- เมนู ---")
+        print("1. เพิ่มข้อมูลนักศึกษา")
+        print("2. ลบข้อมูลนักศึกษาตามรหัส")
+        print("3. ค้นหาข้อมูลนักศึกษาตามรหัส")
+        print("4. แสดงรายชื่อนักศึกษาเรียงตามรหัส")
+        print("5. แสดงจำนวนนักศึกษาทั้งหมด")
+        print("6. ออกจากโปรแกรม")
+        choice = input("กรุณาเลือกเมนู (1-6): ")
+
+        if choice == "1":
+            student_id = int(input("กรุณากรอกรหัสนักศึกษา: "))
+            name = input("กรุณากรอกชื่อ-นามสกุล: ")
+            bst.insert(student_id, name)
+            print("ข้อมูลนักศึกษาถูกเพิ่มเรียบร้อยแล้ว.")
+
+        elif choice == "2":
+            student_id = int(input("กรุณากรอกรหัสนักศึกษาที่ต้องการลบ: "))
+            bst.delete(student_id)
+            print(f"ข้อมูลนักศึกษารหัส {student_id} ถูกลบแล้ว.")
+
+        elif choice == "3":
+            student_id = int(input("กรุณากรอกรหัสนักศึกษาที่ต้องการค้นหา: "))
+            student = bst.search(student_id)
+            if student:
+                print(f"ข้อมูลนักศึกษา: {student.student_id}: {student.name}")
+            else:
+                print("ไม่พบข้อมูลนักศึกษานี้.")
+
+        elif choice == "4":
+            students_inorder = bst.inorder()
+            print("รายชื่อนักศึกษาเรียงตามรหัส:")
+            for student in students_inorder:
+                print(student)
+
+        elif choice == "5":
+            total_students = bst.count_students()
+            print(f"จำนวนนักศึกษาทั้งหมด: {total_students}")
+
+        elif choice == "6":
+            print("ขอขอบคุณที่ใช้โปรแกรม!")
+            break
+
+        else:
+            print("เลือกเมนูไม่ถูกต้อง กรุณาลองใหม่.")
+
+# เรียกใช้ฟังก์ชัน main
+if __name__ == "__main__":
+    main()
+
+### ภาพประกอบ
+![alt text](image-2.png)
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
 ### 1. ระบบจัดการไฟล์และโฟลเดอร์
@@ -503,3 +837,147 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
+### โค้ด
+class DictionaryEntry:
+    def __init__(self, word, meaning, part_of_speech, example_sentence):
+        self.word = word
+        self.meaning = meaning
+        self.part_of_speech = part_of_speech
+        self.example_sentence = example_sentence
+        self.left = None  # ลูกซ้าย
+        self.right = None  # ลูกขวา
+
+class DictionaryTree:
+    def __init__(self):
+        self.root = None
+
+    # 1) ฟังก์ชันเพิ่มคำศัพท์และความหมาย
+    def insert(self, word, meaning, part_of_speech, example_sentence):
+        new_entry = DictionaryEntry(word, meaning, part_of_speech, example_sentence)
+        if self.root is None:
+            self.root = new_entry
+        else:
+            self._insert_rec(self.root, new_entry)
+
+    def _insert_rec(self, node, new_entry):
+        if new_entry.word < node.word:
+            if node.left is None:
+                node.left = new_entry
+            else:
+                self._insert_rec(node.left, new_entry)
+        else:
+            if node.right is None:
+                node.right = new_entry
+            else:
+                self._insert_rec(node.right, new_entry)
+
+    # 2) ฟังก์ชันลบคำศัพท์
+    def delete(self, word):
+        self.root = self._delete_rec(self.root, word)
+
+    def _delete_rec(self, node, word):
+        if node is None:
+            return node
+
+        if word < node.word:
+            node.left = self._delete_rec(node.left, word)
+        elif word > node.word:
+            node.right = self._delete_rec(node.right, word)
+        else:
+            # โหนดนี้ตรงกับที่ต้องการลบ
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            node.word, node.meaning, node.part_of_speech, node.example_sentence = self._min_value_node(node.right)
+            node.right = self._delete_rec(node.right, node.word)
+
+        return node
+
+    def _min_value_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current.word, current.meaning, current.part_of_speech, current.example_sentence
+
+    # 3) ฟังก์ชันค้นหาคำศัพท์
+    def search(self, word):
+        return self._search_rec(self.root, word)
+
+    def _search_rec(self, node, word):
+        if node is None or node.word == word:
+            return node
+        if word < node.word:
+            return self._search_rec(node.left, word)
+        return self._search_rec(node.right, word)
+
+    # แสดงข้อมูลทั้งหมดใน Tree (Inorder Traversal)
+    def inorder(self):
+        entries = []
+        self._inorder_rec(self.root, entries)
+        return entries
+
+    def _inorder_rec(self, node, entries):
+        if node:
+            self._inorder_rec(node.left, entries)
+            entries.append(f"{node.word}: {node.meaning} ({node.part_of_speech})\nExample: {node.example_sentence}")
+            self._inorder_rec(node.right, entries)
+
+
+# ฟังก์ชันสำหรับการกรอกข้อมูลจากผู้ใช้
+def main():
+    dictionary = DictionaryTree()
+
+    while True:
+        print("\n--- เมนู ---")
+        print("1. เพิ่มคำศัพท์และความหมาย")
+        print("2. ลบคำศัพท์")
+        print("3. ค้นหาคำศัพท์")
+        print("4. แสดงคำศัพท์ทั้งหมด")
+        print("5. ออกจากโปรแกรม")
+        choice = input("กรุณาเลือกเมนู (1-5): ")
+
+        if choice == "1":
+            word = input("กรุณากรอกคำศัพท์ภาษาอังกฤษ: ")
+            meaning = input("กรุณากรอกคำแปลภาษาไทย: ")
+            part_of_speech = input("กรุณากรอกชนิดของคำ (noun, verb, adjective, etc.): ")
+            example_sentence = input("กรุณากรอกตัวอย่างประโยค: ")
+            dictionary.insert(word, meaning, part_of_speech, example_sentence)
+            print(f"คำศัพท์ '{word}' ได้ถูกเพิ่มเรียบร้อยแล้ว.")
+
+        elif choice == "2":
+            word = input("กรุณากรอกคำศัพท์ที่ต้องการลบ: ")
+            dictionary.delete(word)
+            print(f"คำศัพท์ '{word}' ได้ถูกลบแล้ว.")
+
+        elif choice == "3":
+            word = input("กรุณากรอกคำศัพท์ที่ต้องการค้นหา: ")
+            entry = dictionary.search(word)
+            if entry:
+                print(f"คำศัพท์: {entry.word}\nแปล: {entry.meaning}\nชนิดของคำ: {entry.part_of_speech}\nตัวอย่างประโยค: {entry.example_sentence}")
+            else:
+                print("ไม่พบคำศัพท์นี้ในพจนานุกรม.")
+
+        elif choice == "4":
+            entries = dictionary.inorder()
+            if entries:
+                print("\nคำศัพท์ทั้งหมดในพจนานุกรม:")
+                for entry in entries:
+                    print(entry)
+            else:
+                print("พจนานุกรมของคุณว่างเปล่า!")
+
+        elif choice == "5":
+            print("ขอขอบคุณที่ใช้โปรแกรม!")
+            break
+
+        else:
+            print("เลือกเมนูไม่ถูกต้อง กรุณาลองใหม่.")
+
+# เรียกใช้ฟังก์ชัน main
+if __name__ == "__main__":
+    main()
+
+
+### รูปภาพประกอบ
+![alt text](image-3.png)
