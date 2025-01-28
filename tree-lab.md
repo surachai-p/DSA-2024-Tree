@@ -53,8 +53,7 @@ root.right = Node(7)
 root.right.right = Node(8)
 ```
 
-![image](https://github.com/user-attachments/assets/8d28b008-d475-447d-8cc3-239e739ef51e)
-
+![image](https://github.com/user-attachments/assets/3b4f5074-1728-404f-bb28-60ecb647ef2a)
 
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
@@ -95,6 +94,9 @@ Inorder: 2 3 4 5 7 8
 Preorder: 5 3 2 4 7 8
 Postorder: 2 4 3 8 7 5
 ```
+
+![image](https://github.com/user-attachments/assets/c02e83dd-1c61-4bec-a56e-ecbc165711d8)
+
 
 ### ส่วนที่ 3: การค้นหาข้อมูลใน Binary Search Tree
 
@@ -180,6 +182,9 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
+
+![image](https://github.com/user-attachments/assets/8753243c-0016-4a47-8955-aadc64f500c2)
+
 
 ## การทดสอบและการวิเคราะห์
 
