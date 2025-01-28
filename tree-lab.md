@@ -93,6 +93,7 @@ Inorder: 2 3 4 5 7 8
 Preorder: 5 3 2 4 7 8
 Postorder: 2 4 3 8 7 5
 ```
+![image](https://github.com/user-attachments/assets/3da31426-0adf-42a0-a5e9-0b12ef77e706)
 
 ### ส่วนที่ 3: การค้นหาข้อมูลใน Binary Search Tree
 
