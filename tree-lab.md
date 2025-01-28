@@ -51,6 +51,8 @@ root.left.right = Node(4)
 # สร้าง right subtree
 root.right = Node(7)
 root.right.right = Node(8)
+
+
 ```
 
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
