@@ -52,7 +52,8 @@ root.left.right = Node(4)
 root.right = Node(7)
 root.right.right = Node(8)
 ```
-https://github.com/AdilBinsaad/DSA-2024-Tree/blob/main/tree-lab.md
+![image](https://github.com/user-attachments/assets/6df36407-fcbf-4b9f-82e7-716a29fd8f25)
+
 ### ส่วนที่ 2: การท่องไป (Traversal) บน Binary Tree
 
 จงเขียนฟังก์ชันสำหรับการท่องไปบน Binary Tree ทั้ง 3 แบบ:
