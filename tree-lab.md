@@ -503,3 +503,4 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
+Test ระบบ Commit
