@@ -177,6 +177,7 @@ root = delete(root, 3)
 print("\nหลังลบข้อมูล 3:")
 inorder(root)  # 2 4 5 7 8
 ```
+![alt text](image-1.png)
 
 ## การทดสอบและการวิเคราะห์
 
@@ -184,12 +185,26 @@ inorder(root)  # 2 4 5 7 8
 2. ทดสอบการค้นหาข้อมูล 4 และ 6
 3. เปรียบเทียบผลการ Traversal ทั้ง 3 แบบ
 
+![alt text](image.png)
+
 ## คำถามท้ายการทดลอง
 
 1. เพราะเหตุใด Binary Search Tree จึงมีประสิทธิภาพในการค้นหาข้อมูลมากกว่า Linear Search?
+
+ ตอบ การแบ่งครึ่งข้อมูล การจัดเก็บข้อมูลแบบมีโครงสร้าง
+
 2. ในกรณีใดบ้างที่ BST จะมีประสิทธิภาพในการค้นหาเทียบเท่ากับ Linear Search?
+
+ ตอบ เมื่อ BST ไม่สมดุล หรือ ต้นไม้เอียง
+
 3. จงอธิบายความแตกต่างระหว่าง Binary Tree และ Binary Search Tree
-4. การ Traversal แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
+
+ ตอบ Binary Tree ไม่มีการจัดเรียงข้อมูล การค้นหาไม่มีประสิทธิภาพมาก ต้นไม้สองทางทั่วไป Binary Search Tree จัดเรียงข้อมูลให้ซ้าย < root < ขวา การค้นหาเร็วกว่าในกรณีสมดุล มีเงื่อนไขการเปรียบเทียบข้อมูล
+ 
+4. การ Traversal 
+แบบใดที่จะแสดงผลข้อมูลเรียงลำดับจากน้อยไปมากเมื่อใช้กับ BST?
+
+ ตอบ Inorder Traversal
 
 ## แบบฝึกหัดเพิ่มเติม
 
@@ -208,6 +223,8 @@ inorder(root)  # 2 4 5 7 8
 1.3) เขียนฟังก์ชันหาความสูงของ Tree
 1.4) เขียนฟังก์ชันหาผลรวมของค่าใน Tree
 
+![alt text](image-9.png)
+
 ### แบบฝึกหัดที่ 2: Binary Search Tree
 จงเขียนโปรแกรมที่รับข้อมูลนักศึกษาประกอบด้วย รหัสนักศึกษา(key) และ ชื่อ-นามสกุล แล้วเก็บในรูปแบบ Binary Search Tree พร้อมทั้งสร้างฟังก์ชันต่อไปนี้:
 
@@ -216,6 +233,8 @@ inorder(root)  # 2 4 5 7 8
 2.3) ค้นหาข้อมูลนักศึกษาตามรหัส
 2.4) แสดงรายชื่อนักศึกษาเรียงตามรหัส
 2.5) แสดงจำนวนนักศึกษาทั้งหมด
+
+![alt text](image-8.png)
 
 ## ส่วนที่ 4: ตัวอย่างการประยุกต์ใช้งานจริง
 
@@ -252,6 +271,7 @@ vacation.add_child(photo2)
 
 root.display()
 ```
+![alt text](image-2.png)
 
 ### 2. ระบบแสดงโครงสร้างองค์กร
 
@@ -309,6 +329,8 @@ root = create_organization()
 print("โครงสร้างองค์กร:")
 display_organization(root)
 ```
+
+![alt text](image-3.png)
 
 ### 3. การบีบอัดข้อมูลด้วย Huffman Code
 
@@ -409,6 +431,7 @@ print(f"\nข้อความที่ถอดรหัสแล้ว: {deco
 compression_ratio = (1 - len(encoded_text) / (len(text.encode('utf-8')) * 8)) * 100
 print(f"\nอัตราการบีบอัด: {compression_ratio:.2f}%")
 ```
+![alt text](image-4.png)
 
 ### 4. ระบบประมวลผลนิพจน์ทางคณิตศาสตร์ (Expression Tree)
 
@@ -450,6 +473,7 @@ root.right = ExprNode(2)
 result = evaluate(root)
 print(f"ผลลัพธ์: {result}")  # ผลลัพธ์: 16
 ```
+![alt text](image-5.png)
 
 ### 5. ระบบตัดสินใจอัตโนมัติ (Decision Tree)
 
@@ -490,6 +514,8 @@ recommendation = advisor.decide()
 print(f"คำแนะนำการแต่งกาย: {recommendation}")
 ```
 
+![alt text](image-6.png)
+
 ### แบบทดสอบ: ระบบพจนานุกรม
 จงพัฒนาระบบพจนานุกรมอย่างง่ายโดยใช้ Binary Tree ที่มีความสามารถดังนี้:
 
@@ -503,3 +529,4 @@ print(f"คำแนะนำการแต่งกาย: {recommendation}")
 - ชนิดของคำ (noun, verb, adjective, etc.)
 - ตัวอย่างประโยค
 
+![alt text](image-7.png)
